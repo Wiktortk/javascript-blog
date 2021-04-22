@@ -77,7 +77,7 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    .active {
+    .active { // active - ta klasa bedzie sie przemieszczac wraz z klikaniem odpowiednich artykulow
         font-weight: bold;
     }
 }
@@ -100,7 +100,7 @@ body {
 
 .post {
     display: none;
-    &.active {
+    &.active { // active - daje elementowi wlasciwosc display: block;
         display: block;
     }
 }
