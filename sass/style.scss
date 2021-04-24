@@ -78,7 +78,7 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    .active { // active - ta klasa bedzie sie przemieszczac wraz z klikaniem odpowiednich artykulow
+    .active { 
         font-weight: bold;
         color: $colorlink-backlight;
     }
@@ -102,7 +102,7 @@ body {
 
 .post {
     display: none;
-    &.active { // active - daje elementowi wlasciwosc display: block;
+    &.active { 
         display: block;
     }
 }
