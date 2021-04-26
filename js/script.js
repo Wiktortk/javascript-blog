@@ -8,7 +8,6 @@
 const titleClickHandler = function(event){
   event.preventDefault();
   const clickedElement = this;
-  console.log('Link was clicked!', event);
 
   /* [DONE] remove class 'active' from all article links  */
 
@@ -21,7 +20,6 @@ const titleClickHandler = function(event){
   /* [DONE] add class 'active' to the clicked link */
 
   clickedElement.classList.add('active');
-  console.log('clickedElement:', clickedElement);
 
   /* [DONE] remove class 'active' from all articles */
 
@@ -34,13 +32,10 @@ const titleClickHandler = function(event){
   /* [DONE] get 'href' attribute from the clicked link */
 
   const articleSelector = clickedElement.getAttribute('href');
-  console.log('articleSelector:', articleSelector);
   
   /* [DONE] find the correct article using the selector (value of 'href' attribute) */
 
   const targetArticle = document.querySelector(articleSelector);
-  //console.log(targetArticle); zły zapis - nie działa 
-  console.log('targetArticle:',targetArticle);
 
   /* [DONE] add class 'active' to the correct article */
 
@@ -70,19 +65,20 @@ function generateTitleLinks(){
   for(let article of articles){
     //console.log(article);
   
-    /* [ DONE ]get the article id */
+    /* [ DONE ] get the article id */
 
     const articleId = article.getAttribute('id');
     //console.log(articleId);
 
-    /* [ DONE ]find the title element */
+    /* [ DONE ] ind the title element */
 
     const articleTitle = article.querySelector(optTitleSelector).innerHTML;
     console.log(articleTitle);
 
-    /* get the title from the title element */
+    /* [ IN PROGRESS ] get the title from the title element */
 
-    
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    //console.log(linkHTML);
 
     /* create HTML of the link */
 
