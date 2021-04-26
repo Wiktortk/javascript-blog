@@ -64,7 +64,10 @@ function generateTitleLinks(){
   const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
   console.log('titleList:', titleList);
   
-  /* for each article */
+  /* [ IN PROGRESS ] for each article */
+
+  const articles = optArticleSelector; 
+  console.log(articles);
 
     /* get the article id */
 
