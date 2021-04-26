@@ -62,13 +62,14 @@ function generateTitleLinks(){
   /* [ DONE ] remove contents of titleList */
   
   const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
-  console.log('titleList:', titleList);
+   
+  /* [ DONE ] for each article */
+
+  const articles = document.querySelectorAll(optArticleSelector);
   
-  /* [ IN PROGRESS ] for each article */
-
-  const articles = optArticleSelector; 
-  console.log(articles);
-
+  for(let article of articles){
+    console.log(article);
+  }
     /* get the article id */
 
     /* find the title element */
