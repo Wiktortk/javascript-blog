@@ -69,8 +69,10 @@ function generateTitleLinks(){
   
   for(let article of articles){
     console.log(article);
-  }
-    /* get the article id */
+  
+    /* [ DONE ]get the article id */
+    const articleId = article.getAttribute('id');
+    console.log(articleId);
 
     /* find the title element */
 
@@ -79,6 +81,6 @@ function generateTitleLinks(){
     /* create HTML of the link */
 
     /* insert link into titleList */
-
+  }
 }
 generateTitleLinks();
