@@ -59,16 +59,15 @@ const optTitleSelector = '.post-title';
 
 function generateTitleLinks(){
 
-    //czy kod między liniami 56 a 82 ma być przed linią 48 czyli w funkcji  '}' 
+    //czy kod między liniami 56 a 94 ma być przed linią 48 czyli w funkcji  '}' 
 
   /* [ IN PROGRESS ] remove contents of titleList */
   
-  const titleList = document.querySelector(optTitleListSelector);
-
-  for(let listArticle of titleList){
-    console.log(listArticle);
-  }
-  console.log('listArticle:', listArticle);
+  const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
+  console.log('titleList:', titleList);
+  //for(let listArticle of titleList){
+    //console.log(listArticle);
+  //}
 
   /* for each article */
 
