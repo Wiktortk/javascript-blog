@@ -3,6 +3,7 @@
 const optTitleListSelector = '.titles';
 const optArticleSelector = '.post';
 const optTitleSelector = '.post-title';
+const optArticleTagsSelector = '.post-tags .list';
 
 const titleClickHandler = function(event){
   event.preventDefault();
@@ -85,3 +86,45 @@ const links = document.querySelectorAll('.titles a');
 for(let link of links){
   link.addEventListener('click', titleClickHandler);
 }
+
+function generateTags(){
+
+  /* [ DONE ] find all articles */
+
+  const articles = document.querySelectorAll(optArticleSelector);
+
+  /* START LOOP: for every article: */
+
+  for(let article of articles){
+
+    /* [ DONE ] find tags wrapper */
+
+    const titleList = article.querySelector(optArticleTagsSelector);
+    //console.log(titleList);
+
+    /* [ DONE ] make html variable with empty string */
+
+    let html = '';
+
+    /* [ DONE ] get tags from data-tags attribute */
+
+    const articleTags = article.getAttribute('data-tags');
+    console.log(articleTags);
+
+    /* split tags into array */
+
+    /* START LOOP: for each tag */
+
+    /* generate HTML of the link */
+
+    /* add generated code to html variable */
+
+    /* END LOOP: for each tag */
+
+    /* insert HTML of all the links into the tags wrapper */
+
+    /* END LOOP: for every article: */
+  }
+}
+
+generateTags();
