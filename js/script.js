@@ -123,7 +123,7 @@ function generateTags(){
       /* [ DONE ] generate HTML of the link */
 
       const linkHTML = '<li><a href="#tag-' +  tag  + '"><span>' +  tag  + '</span></a></li>';
-      console.log(linkHTML);
+      //console.log(linkHTML);
 
       /* [ DONE ] add generated code to html variable */
 
