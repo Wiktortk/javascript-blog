@@ -4,6 +4,7 @@ const optTitleListSelector = '.titles';
 const optArticleSelector = '.post';
 const optTitleSelector = '.post-title';
 const optArticleTagsSelector = '.post-tags .list';
+const optTagLinkSelector = '.tags';
 
 const titleClickHandler = function(event){
   event.preventDefault();
@@ -123,7 +124,7 @@ function generateTags(){
       /* [ DONE ] generate HTML of the link */
 
       const linkHTML = '<li><a href="#tag-' +  tag  + '"><span>' +  tag  + '</span></a></li>';
-      console.log(linkHTML);
+      //console.log(linkHTML);
 
       /* [ DONE ] add generated code to html variable */
 
@@ -198,12 +199,14 @@ function tagClickHandler(event){
 
 function addClickListenersToTags(){
   /* find all links to tags */
-
+  const tagLink = document.querySelectorAll(optTagLinkSelector);
   /* START LOOP: for each link */
-
+  for(let href of tagLink){
     /* add tagClickHandler as event listener for that link */
-
-  /* END LOOP: for each link */
+    href.addEventListener('click', tagClickHandler);
+    /* END LOOP: for each link */
+  }
+  console.log(tagLink);
 }
 
 addClickListenersToTags();
