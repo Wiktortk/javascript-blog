@@ -4,7 +4,7 @@ const optTitleListSelector = '.titles';
 const optArticleSelector = '.post';
 const optTitleSelector = '.post-title';
 const optArticleTagsSelector = '.post-tags .list';
-//const optTagLinkSelector = '.tags a';
+const optTagLinkSelector = '.list-horizontal a';
 const optActiveSelector = 'a.active[href^="#tag-"]';
 
 const titleClickHandler = function(event){
@@ -158,15 +158,14 @@ function tagClickHandler(event){
   /* [ DONE ] make a new constant "href" and read the attribute "href" of the clicked element */
 
   const href = clickedElement.getAttribute('href');
-  //console.log(href);
-  /* [ IN PROGRESS ] make a new constant "tag" and extract tag from the "href" constant */
-
-  //const tag = document.querySelectorAll(href);to moja próba ogarnięcia tego samemu
-  const tag = href.replace('#tag-', '');
   console.log(href);
+  /* [ DONE ] make a new constant "tag" and extract tag from the "href" constant */
+
+  const tag = href.replace('#tag-', '');
+  console.log(tag);
   /* [ IN PROGRESS ] find all tag links with class active */
 
-  const activeTags = document.querySelector(optActiveSelector);
+  const activeTags = document.querySelectorAll(optActiveSelector);
   console.log(activeTags);
   /* [ IN PROGRESS ] START LOOP: for each active tag link */
   /* [ IN PROGRESS ] remove class active */
@@ -188,7 +187,7 @@ function tagClickHandler(event){
   /* [ IN PROGRESS ] add class active */
 
   for(let href of linksHref){
-    href.classList.add('active');
+    href.classList.add('.active');
 
     /* END LOOP: for each found tag link */
   }
@@ -200,14 +199,15 @@ function tagClickHandler(event){
 
 
 function addClickListenersToTags(){
-  /* find all links to tags */
-  const tagLink = document.querySelectorAll(optActiveSelector);
+  /* [ DONE ] find all links to tags */
+  const tagLink = document.querySelectorAll(optTagLinkSelector);
   console.log(tagLink);
-  /* START LOOP: for each link */
+  /* [ DONE ] START LOOP: for each link */
   for(let href of tagLink){
-    /* add tagClickHandler as event listener for that link */
+    /* [ DONE ] add tagClickHandler as event listener for that link */
+    console.log(href);
     href.addEventListener('click', tagClickHandler);
-    /* END LOOP: for each link */
+    /* [ DONE ] END LOOP: for each link */
   }
 
 }
