@@ -125,9 +125,9 @@ function calculateTagsParams(tags){
   return params;
 }
 
-function calculateTagClass(count, params){
+function calculateTagClass(count,params){
   
-  const normalizedCount = optCloudClassCount - params.min;
+  const normalizedCount = count - params.min;
   //console.log(normalizedCount);
   
   const normalizedMax = params.max - params.min;
@@ -137,11 +137,10 @@ function calculateTagClass(count, params){
   //console.log(percentage);
   
   const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+  return optCloudClassPrefix + classNumber;
   //console.log(classNumber);
 
 }
-
-calculateTagClass();
 
 function generateTags(){
 
@@ -221,15 +220,10 @@ function generateTags(){
   for(let tag in allTags){
 
     /* [NEW] generate code of a link and add it to allTagsHTML */
+    //const tagLinkHTML = '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#' + tag + '">' + tag +  '</a></li>';
+    const tagLinkHTML = '<li><a class="' + calculateTagClass(allTags[tag], tagsParam) + '" href="tag' + tag + '">' + tag +  '</a></li>';
 
-    const tagLinkHTML = '<li><a href="tag">' + calculateTagClass(allTags[tag], tagsParam) + '</a></li>';
-    console.log('tagLinkHTML:', tagLinkHTML);
-   
-    allTagsHTML += tagLinkHTML; //ta linia zastępuje linię ponizej?
-    //allTagsHTML += '<li><a class="" href="tag">' + tag + ' (' + allTags[tag] + ') ' + '</a></li>';
-    console.log(tag);
-    console.log(allTags[tag]);
-    
+    allTagsHTML += tagLinkHTML;    
     
     /* [NEW] END LOOP: for each tag in allTags: */
   }
