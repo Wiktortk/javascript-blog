@@ -1,5 +1,10 @@
 'use strict';
 
+const templates = {
+  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+  articleTag: Handlebars.compile(document.querySelector('#template-article-tag').innerHTML),
+}
+
 const optTitleListSelector = '.titles';
 const optArticleSelector = '.post';
 const optTitleSelector = '.post-title';
@@ -85,8 +90,10 @@ function generateTitleLinks(customSelector = ''){
 
     /* [ DONE ] create HTML of the link */
 
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-
+    //const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    const linkHTMLData = {id: articleId, title: articleTitle};
+    const linkHTML = templates.articleLink(linkHTMLData);
+    
     html = html + linkHTML;
   }
 
@@ -178,11 +185,15 @@ function generateTags(){
 
       /* [ DONE ] generate HTML of the link */
       
-      const linkHTML = '<li><a href="#tag-' + tag + '"><span class="post-tags">' + tag+ '</span></a></li>';
-
+      //const linkHTML = '<li><a href="#tag-' + tag + '"><span class="post-tags">' + tag + '</span></a></li>';
+      
+      const linkHTML = {id: tag};
+      const html = templates.articleTag(linkHTML);
+      titleList.insertAdjacentHTML('beforeend', html);
+      
       /* [ DONE ] add generated code to html variable */
 
-      html = html + linkHTML;
+      //html = html + linkHTML;
 
       /* [NEW] check if this link is NOT already in allTags */
       
@@ -200,7 +211,7 @@ function generateTags(){
 
     /* [ DONE ] insert HTML of all the links into the tags wrapper */
 
-    titleList.innerHTML = html;
+    //titleList.innerHTML = html;
 
     /* [ DONE ] END LOOP: for every article: */
   } 
@@ -330,6 +341,11 @@ function generateAuthors(){
       allTags[articleAttributeBy]++;
     }
     let authorTag = '<a href="#' + articleAttributeBy + '">' + articleAttributeBy + '</a';
+
+    //const linkHTMLData = {id: articleId, title: articleTitle};
+    //const linkHTML = templates.articleLink(linkHTMLData);
+
+
     const authorWrapper = author.querySelector('.post-author');
     authorWrapper.innerHTML = authorTag;
   }
