@@ -3,6 +3,7 @@
 const templates = {
   articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
   articleTag: Handlebars.compile(document.querySelector('#template-article-tag').innerHTML),
+  artLink: Handlebars.compile(document.querySelector('#template-art-link').innerHTML),
 }
 
 const optTitleListSelector = '.titles';
@@ -186,7 +187,6 @@ function generateTags(){
       /* [ DONE ] generate HTML of the link */
       
       //const linkHTML = '<li><a href="#tag-' + tag + '"><span class="post-tags">' + tag + '</span></a></li>';
-      
       const linkHTML = {id: tag};
       const html = templates.articleTag(linkHTML);
       titleList.insertAdjacentHTML('beforeend', html);
@@ -340,10 +340,9 @@ function generateAuthors(){
     else {
       allTags[articleAttributeBy]++;
     }
-    let authorTag = '<a href="#' + articleAttributeBy + '">' + articleAttributeBy + '</a';
-
-    //const linkHTMLData = {id: articleId, title: articleTitle};
-    //const linkHTML = templates.articleLink(linkHTMLData);
+    //let authorTag = '<a href="#' + articleAttributeBy + '">' + articleAttributeBy + '</a';
+    const linkHTMLData = {id: articleAttributeBy};
+    const authorTag = templates.artLink(linkHTMLData);
 
 
     const authorWrapper = author.querySelector('.post-author');
